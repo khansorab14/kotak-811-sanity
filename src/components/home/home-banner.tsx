@@ -1,12 +1,12 @@
 "use client";
-import Image from "next/image";
+
 import React from "react";
 import InfoCard from "../ui/info-card"; // Ensure correct import path
 
 const HomeBanner = ({ data, infoCard }) => {
   if (!data || !infoCard) return null;
 
-  const { topHeading, heading, description, link, image } = data;
+  const { topHeading, heading, description, image } = data;
   // Destructure button
 
   const getImageUrl = (image) => {

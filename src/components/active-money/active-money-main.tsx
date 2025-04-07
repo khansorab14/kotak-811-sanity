@@ -2,11 +2,10 @@
 
 import { useEffect, useState } from "react";
 import HomeBanner from "@/components/home/home-banner";
-import CardBanner from "@/components/ui/card-banner";
-import DownloadSection from "@/components/ui/download-section";
+
 import InfoBanner from "../ui/info-banner-home";
 import InfoSimpleBanner from "../ui/info-simple-banner";
-import AskQuestionAccordion from "../comman/ask-question-accordion";
+
 import ActiveMoneyAccordion from "./activemoney-accordion";
 
 const ActiveMoneyMain = ({ sanityData }) => {
@@ -17,7 +16,8 @@ const ActiveMoneyMain = ({ sanityData }) => {
   const [heroData, setHeroData] = useState(null);
   const [infoCard, setInfoCard] = useState(null);
 
-  const [cardBanner, setCardBanner] = useState([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [cardBanner, setCardBanner] = useState<any>([]);
 
   useEffect(() => {
     if (!sanityData || !sanityData.sections) {

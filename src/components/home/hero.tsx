@@ -46,8 +46,8 @@ const Hero = ({ hero }) => {
         ))}
 
       {/* Card Banner Section */}
-      {cardDetailBanner.length > 0 &&
-        cardDetailBanner.map(({ id, title, description, ctxButton, image }) => (
+      {cardDetailBanner?.map?.(
+        ({ id, title, description, ctxButton, image }) => (
           <CardBanner
             key={id}
             title={title}
@@ -56,7 +56,8 @@ const Hero = ({ hero }) => {
             buttonLink={ctxButton?.link || "#"}
             imageUrl={image}
           />
-        ))}
+        )
+      )}
     </>
   );
 };

@@ -8,14 +8,29 @@ import { useEffect, useState } from "react";
 import InfoBanner from "../ui/info-banner-home";
 import InfoSimpleBanner from "../ui/info-simple-banner";
 import AskQuestionAccordion from "../comman/ask-question-accordion";
-import ActiveMoneyAccordion from "../active-money/activemoney-accordion";
 
 const BusinessMain = () => {
-  const [askQuestions, setAskQuestions] = useState(null);
-  const [infoBanner, setInfoBanner] = useState(null);
+  const [askQuestions, setAskQuestions] = useState<
+    { title: string; heading: string; accordions: never[] } | undefined
+  >(undefined);
+  const [, setInfoBanner] = useState(null);
   const [heroData, setHeroData] = useState(null);
   const [infoCard, setInfoCard] = useState(null);
-  const [detailBanner, setDetailBanner] = useState([]);
+  interface DetailBanner {
+    id: string;
+    title: string;
+    description: string;
+    coverImage?: {
+      image?: { url: string }[];
+    };
+    button?: {
+      buttonLabel: string;
+      link: string;
+    };
+  }
+
+  const [detailBanner, setDetailBanner] = useState<DetailBanner[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [cardBanner, setCardBanner] = useState<any[]>([]);
   const [simpleBanner, setSimpleBanner] = useState(null);
 
@@ -127,7 +142,7 @@ const BusinessMain = () => {
       {/* Info Banner  */}
       <InfoSimpleBanner data={simpleBanner} />
 
-      <AskQuestionAccordion askQuestions={askQuestions} />
+      {askQuestions && <AskQuestionAccordion askQuestions={askQuestions} />}
 
       <DownloadSection />
     </>

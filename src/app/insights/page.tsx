@@ -1,6 +1,7 @@
 import InsightMain from "@/components/insights/insights-main";
 
 import { client } from "@/components/lib/sanityClient";
+import { Suspense } from "react";
 
 export async function getInsightData() {
   try {
@@ -52,5 +53,9 @@ export default async function Page() {
     return <p>Error fetching data</p>;
   }
 
-  return <InsightMain insightData={insightData.sections} />;
+  return (
+    <Suspense>
+      <InsightMain insightData={insightData.sections} />
+    </Suspense>
+  );
 }

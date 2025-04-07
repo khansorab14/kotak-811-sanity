@@ -1,4 +1,3 @@
-// /src/app/api/test-email/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { sendMail } from "@/components/lib/nodemailer";
 
@@ -10,7 +9,7 @@ type WebhookPayload = {
   _rev: string;
 };
 
-let lastSnapshot: Record<string, any> = {}; // TEMP: store last for diff (in real app: use a DB)
+let lastSnapshot: Record<string, unknown> = {}; // TEMP: store last for diff (in real app: use a DB)
 
 export async function POST(req: NextRequest) {
   try {
@@ -48,6 +47,7 @@ export async function POST(req: NextRequest) {
     );
 
     return NextResponse.json({ success: true });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     console.error("Webhook email failed:", err);
     return NextResponse.json(

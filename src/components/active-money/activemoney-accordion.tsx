@@ -9,7 +9,7 @@ const ActiveMoneyAccordion = ({ accordionBanner }) => {
   const { heading, loadingInfo = [] } = accordionBanner || {};
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [progress, setProgress] = useState(0);
+  const [, setProgress] = useState(0);
 
   // Auto change index every 4 seconds
   useEffect(() => {

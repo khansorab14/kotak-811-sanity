@@ -1,8 +1,18 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const AskQuestionAccordion = ({
+interface AskQuestionAccordionProps {
+  askQuestions: {
+    title: string;
+    heading: string;
+    accordions: {
+      id: string;
+      title: string;
+      description: string;
+    }[];
+  };
+}
+const AskQuestionAccordion: React.FC<AskQuestionAccordionProps> = ({
   askQuestions = { title: "", heading: "", accordions: [] },
 }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);

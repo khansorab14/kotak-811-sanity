@@ -36,8 +36,9 @@ const InsightMain = ({ insightData }) => {
         });
       });
 
-      setCategories(["All", ...Array.from(uniqueTags)]);
+      setCategories(["All", ...(Array.from(uniqueTags) as string[])]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
